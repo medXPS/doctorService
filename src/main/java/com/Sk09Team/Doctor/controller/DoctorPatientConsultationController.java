@@ -27,7 +27,6 @@ public class DoctorPatientConsultationController {
 
     }
 
-
     @GetMapping("/{city}/{specialty}/listDoctorsByCityAndSpecialty")
     public ResponseEntity<List<DoctorResponse>> getDoctorsByCityAndSpecialty(@PathVariable("city") String city, @PathVariable("specialty") String specialty) {
         List<DoctorResponse> doctorResponse
