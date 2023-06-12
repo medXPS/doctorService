@@ -8,20 +8,20 @@ spec:
       app: doctor-service-app
   template:
     metadata:
-    labels:
-      app: doctor-service-app
-  spec:
-    containers:
-      - name: doctor-service-app
-        image: IMAGE_URL/doctorservice
-        ports:
-          - containerPort: 8084
-        env:
-          - name: DB_HOST
-            valueFrom:
-              configMapKeyRef:
-                name: mysql-cm
-                key: hostname
+      labels:
+        app: doctor-service-app
+    spec:
+      containers:
+        - name: doctor-service-app
+          image: IMAGE_URL/doctorservice
+          ports:
+            - containerPort: 8084
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-cm
+                  key: hostname
 
 ---
 apiVersion: v1
@@ -31,7 +31,8 @@ metadata:
 spec:
   type: ClusterIP
   selector:
+
     app: doctor-service-app
   ports:
-    - port: 8084
+    - port: 80
       targetPort: 8084
