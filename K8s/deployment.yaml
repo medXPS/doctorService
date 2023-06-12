@@ -29,10 +29,10 @@ kind: Service
 metadata:
   name: doctor-service-svc
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: doctor-service-app
   ports:
     - port: 80
       targetPort: 8084
-
+---
