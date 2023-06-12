@@ -8,6 +8,13 @@ node {
             credentialsId: 'git',
             url: 'https://github.com/medXPS/doctorService.git'
     }
+    stage('Access MySQL') {
+      steps {
+        sh '''
+          kubectl exec -it mysql -- mysql -u root -pENSA2023 -e "CREATE DATABASE IF NOT EXISTS doctordb"
+        '''
+      }
+    }
 
     stage('Build and Push Image'){
         withCredentials([file(credentialsId: 'gcp', variable: 'GC_KEY')]){
