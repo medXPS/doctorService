@@ -23,7 +23,10 @@ spec:
             - containerPort: 8084
           env:
             - name: DB_HOST
-              value: mysql
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-cm
+                  key: hostname
 
 
 ---
