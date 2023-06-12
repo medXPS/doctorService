@@ -12,7 +12,7 @@ spec:
         app: = doctor-service-app
     spec:
       containers:
-      - name: =
+      - name: = doctor-service-app
         image: IMAGE_URL/doctorservice
         ports:
         - containerPort: 8084
