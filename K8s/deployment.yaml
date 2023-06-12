@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: = doctor-service-app
+  name: doctor-service-app
 spec:
   selector:
     matchLabels:
-      app: = doctor-service-app
+      app: doctor-service-app
   template:
     metadata:
       labels:
-        app: = doctor-service-app
+        app: doctor-service-app
     spec:
       containers:
-      - name: = doctor-service-app
-        image: IMAGE_URL/doctorservice
-        ports:
-        - containerPort: 8084
-        env:
-          - name: DB_HOST
-            valueFrom:
-              configMapKeyRef:
-                name: mysql-cm
-                key: hostname
-      
+        - name: doctor-service-app
+          image: IMAGE_URL/doctorservice
+          ports:
+            - containerPort: 8084
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-cm
+                  key: hostname
+
 ---
 apiVersion: v1
 kind: Service
@@ -30,7 +30,7 @@ metadata:
   name: doctor-service-svc
 spec:
   selector:
-    app: doctor-service-svc
+    app: doctor-service-app
   ports:
-  - port: 80
-    targetPort: 8084
+    - port: 80
+      targetPort: 8084
