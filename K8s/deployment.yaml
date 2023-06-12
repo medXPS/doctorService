@@ -16,6 +16,12 @@ spec:
         image: IMAGE_URL/doctorservice
         ports:
         - containerPort: 8084
+        env:
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: mysql-cm
+                key: hostname
       
 ---
 apiVersion: v1
