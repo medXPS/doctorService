@@ -1,7 +1,5 @@
 server:
   port: 8084
-
-
 spring:
   datasource:
     url: jdbc:mysql://${DB_HOST:localhost}:3306/doctordb
@@ -42,3 +40,6 @@ application:
       refresh-token:
         expiration: 604800000 # 7 days
 
+microservice:
+  patient: http://patient-service-svc/product/
+  consultation: http://consultation-service-svc/payment/
