@@ -8,16 +8,12 @@ node {
             credentialsId: 'git',
             url: 'https://github.com/medXPS/doctorService.git'
     }
-    stage('Access MySQL') {
-      steps {
-        sh '''
-          kubectl exec -it mysql -- mysql -u root -pENSA2023 -e "CREATE DATABASE IF NOT EXISTS doctordb"
-        '''
-      }
-    }
 
     stage('Build and Push Image'){
         withCredentials([file(credentialsId: 'gcp', variable: 'GC_KEY')]){
+            sh '''
+                      kubectl exec -it mysql -- mysql -u root -pENSA2023 -e "CREATE DATABASE IF NOT EXISTS doctordb"
+                    '''
             sh("gcloud auth activate-service-account --key-file=${GC_KEY}")
             sh 'gcloud auth configure-docker us-west4-docker.pkg.dev'
             sh "${mvnCMD} clean install jib:build -DREPO_URL=${REGISTRY_URL}/${PROJECT_ID}/${ARTIFACT_REGISTRY}"
