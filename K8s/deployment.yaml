@@ -29,9 +29,8 @@ kind: Service
 metadata:
   name: doctor-service-svc
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
-
     app: doctor-service-app
   ports:
     - port: 80
