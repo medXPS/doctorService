@@ -3,10 +3,7 @@ package com.Sk09Team.Doctor.service;
 import com.Sk09Team.Doctor.entity.Doctor;
 import com.Sk09Team.Doctor.entity.Patient;
 import com.Sk09Team.Doctor.external.client.CosnultationClient;
-import com.Sk09Team.Doctor.model.ConsultationResponseForDoctor;
-import com.Sk09Team.Doctor.model.DoctorFullProfileRequest;
-import com.Sk09Team.Doctor.model.DoctorRequest;
-import com.Sk09Team.Doctor.model.DoctorResponse;
+import com.Sk09Team.Doctor.model.*;
 import com.Sk09Team.Doctor.repository.DoctorRepository;
 import com.Sk09Team.Doctor.repository.PatientRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -120,7 +117,6 @@ public class DoctorServiceImpl implements  DoctorService {
                 .place(doctorRequest.getPlace())
                 .paymentMode(doctorRequest.getPaymentMode())
                 .languages(doctorRequest.getLanguages())
-                .calendar(doctorRequest.getCalendar())
                 .build();
 
         doctorRepository.save(updatedDoctor);
@@ -205,6 +201,17 @@ public class DoctorServiceImpl implements  DoctorService {
                 .place(doctor.getPlace())
 
                 .build();
+    }
+
+    @Override
+    public void updateCalendar(long doctorId, CalendarRequest calendar) {
+        Doctor doctor = doctorRepository.findById(doctorId)
+                .orElseThrow(() -> new EntityNotFoundException("Doctor not found with id: " + doctorId));
+        doctor.setCalendar(calendar.getCalendar());
+        doctorRepository.save(doctor);
+
+
+
     }
 
 }

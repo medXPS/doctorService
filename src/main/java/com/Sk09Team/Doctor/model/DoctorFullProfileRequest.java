@@ -31,7 +31,7 @@ public class DoctorFullProfileRequest {
     private String place;
     private PaymentMode paymentMode;
     private List<String> languages;
-    private String calendar;
+
 
 
 }

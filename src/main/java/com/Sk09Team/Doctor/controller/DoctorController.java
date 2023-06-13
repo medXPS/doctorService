@@ -1,6 +1,7 @@
 package com.Sk09Team.Doctor.controller;
 
 import com.Sk09Team.Doctor.entity.Patient;
+import com.Sk09Team.Doctor.model.CalendarRequest;
 import com.Sk09Team.Doctor.model.ConsultationResponseForDoctor;
 import com.Sk09Team.Doctor.model.DoctorFullProfileRequest;
 import com.Sk09Team.Doctor.model.DoctorRequest;
@@ -49,12 +50,7 @@ public class DoctorController {
         List<Patient> patients = doctorService.getAllPatientsByDoctorId(doctorId);
         return ResponseEntity.ok(patients);
     }
-   @PreAuthorize("hasAuthority('doctor:update')")
-    @PutMapping("profile/updateProfile/{doctorId}")
-    public ResponseEntity<String> updateDoctor(@PathVariable long doctorId, @RequestBody DoctorFullProfileRequest doctorRequest) {
-        doctorService.updateDoctor(doctorId,doctorRequest);
-        return ResponseEntity.ok("Doctor updated successfully.");
-    }
+
 
 
 }

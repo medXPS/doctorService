@@ -1,10 +1,7 @@
 package com.Sk09Team.Doctor.service;
 
 import com.Sk09Team.Doctor.entity.Patient;
-import com.Sk09Team.Doctor.model.ConsultationResponseForDoctor;
-import com.Sk09Team.Doctor.model.DoctorFullProfileRequest;
-import com.Sk09Team.Doctor.model.DoctorRequest;
-import com.Sk09Team.Doctor.model.DoctorResponse;
+import com.Sk09Team.Doctor.model.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +29,7 @@ public interface DoctorService {
 
     void updateDoctor(long doctorId, DoctorFullProfileRequest doctorRequest);
     DoctorResponse getDoctorByDoctorId(long doctorId);
+
+    void updateCalendar(long doctorId, CalendarRequest calendar);
 }
 

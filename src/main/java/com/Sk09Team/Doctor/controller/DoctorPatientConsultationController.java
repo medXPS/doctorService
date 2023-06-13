@@ -1,11 +1,14 @@
 package com.Sk09Team.Doctor.controller;
 
+import com.Sk09Team.Doctor.model.CalendarRequest;
+import com.Sk09Team.Doctor.model.DoctorFullProfileRequest;
 import com.Sk09Team.Doctor.model.DoctorResponse;
 import com.Sk09Team.Doctor.service.DoctorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -74,4 +77,17 @@ public class DoctorPatientConsultationController {
     public DoctorResponse getDoctorByDoctorId(@PathVariable long doctorId) {
         return doctorService.getDoctorByDoctorId(doctorId);
     }
+
+    @PutMapping("profile/updateProfile/{doctorId}")
+    public ResponseEntity<String> updateDoctor(@PathVariable long doctorId, @RequestBody DoctorFullProfileRequest doctorRequest) {
+        doctorService.updateDoctor(doctorId,doctorRequest);
+        return ResponseEntity.ok("Doctor updated successfully.");
+    }
+
+    @PutMapping("profile/updateCalendar/{doctorId}")
+    public ResponseEntity<String> updateDoctor(@PathVariable long doctorId, @RequestBody CalendarRequest calendar) {
+        doctorService.updateCalendar(doctorId,calendar);
+        return ResponseEntity.ok("calendar updated successfully.");
+    }
+
 }
