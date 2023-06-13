@@ -12,11 +12,11 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/DoctorPatientConsultation")
 
-@CrossOrigin(origins = "*")
+
 @RequiredArgsConstructor
 public class DoctorPatientConsultationController {
 

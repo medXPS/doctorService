@@ -11,10 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/doctor/auth")
-@CrossOrigin(origins = "*")
+
 @RequiredArgsConstructor
 public class AuthenticationController {
 
