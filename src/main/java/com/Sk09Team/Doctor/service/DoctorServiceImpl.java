@@ -105,7 +105,6 @@ public class DoctorServiceImpl implements  DoctorService {
                 .doctorId(doctor.getDoctorId())
                 .firstName(doctorRequest.getFirstName())
                 .lastName(doctorRequest.getLastName())
-
                 .address(doctorRequest.getAddress())
                 .email(doctorRequest.getEmail())
                 .doctorPhone(doctorRequest.getPhone())
@@ -117,6 +116,7 @@ public class DoctorServiceImpl implements  DoctorService {
                 .place(doctorRequest.getPlace())
                 .paymentMode(doctorRequest.getPaymentMode())
                 .languages(doctorRequest.getLanguages())
+                .registrationNumber(doctorRequest.getRegistrationNumber())
                 .build();
 
         doctorRepository.save(updatedDoctor);
@@ -185,6 +185,7 @@ public class DoctorServiceImpl implements  DoctorService {
         // Map the patient entity to PatientResponse
 
         return DoctorResponse.builder()
+                .doctorId(doctorId)
                 .firstName(doctor.getFirstName())
                 .lastName(doctor.getLastName())
                 .specialty(doctor.getSpecialty())
