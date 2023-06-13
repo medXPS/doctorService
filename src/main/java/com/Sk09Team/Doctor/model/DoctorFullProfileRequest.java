@@ -18,7 +18,7 @@ import java.util.List;
 public class DoctorFullProfileRequest {
     private String firstName;
     private String lastName;
-    private String password;
+
     private String registrationNumber;
     private String address;
     private String email;

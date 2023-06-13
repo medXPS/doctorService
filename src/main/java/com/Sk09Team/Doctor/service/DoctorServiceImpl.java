@@ -105,7 +105,7 @@ public class DoctorServiceImpl implements  DoctorService {
                 .doctorId(doctor.getDoctorId())
                 .firstName(doctorRequest.getFirstName())
                 .lastName(doctorRequest.getLastName())
-                .password(passwordEncoder.encode(doctorRequest.getPassword()))
+
                 .address(doctorRequest.getAddress())
                 .email(doctorRequest.getEmail())
                 .doctorPhone(doctorRequest.getPhone())
