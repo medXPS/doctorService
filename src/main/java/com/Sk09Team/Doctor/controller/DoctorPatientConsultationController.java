@@ -12,8 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin(origins = "http://localhost:5173/")
+
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/DoctorPatientConsultation")
 
 
