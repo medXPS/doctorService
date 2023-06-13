@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
+@CrossOrigin(origins="*")
 
 @RequestMapping("/DoctorPatientConsultation")
 
@@ -29,7 +30,7 @@ public class DoctorPatientConsultationController {
         return "it works";
 
     }
-    @CrossOrigin(origins="*")
+
 
     @GetMapping("/{city}/{specialty}/listDoctorsByCityAndSpecialty")
     public ResponseEntity<List<DoctorResponse>> getDoctorsByCityAndSpecialty(@PathVariable("city") String city, @PathVariable("specialty") String specialty) {
