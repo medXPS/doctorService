@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping("/doctor")
 @RequiredArgsConstructor
